@@ -16,9 +16,9 @@ const Headers = () => {
   const [isHeader, setIsHeader] = useState<boolean>(false);
 
   return (
-    <nav>
+    <nav className='shadow-md static top-0 w-full z-[999] h-[60px]'>
 
-      <div className="md:my-8 my-4 md:mx-24 mx-10">
+      <div className="md:my-8 mb-4 mt-4 md:mx-24 mx-10">
         <div className="flex items-center justify-between">
           <Link href="/">
             <Image src={logo} height={35} width={150} alt='logo' />
