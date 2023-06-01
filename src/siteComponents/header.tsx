@@ -16,9 +16,9 @@ const Headers = () => {
   const [isHeader, setIsHeader] = useState<boolean>(false);
 
   return (
-    <nav className='shadow-md static top-0 w-full z-[999] h-[60px]'>
+    <nav className='shadow-md sticky top-0 bg-white w-full z-[999] h-[60px]'>
 
-      <div className="md:my-8 mb-4 mt-4 md:mx-24 mx-10">
+      <div className="md:mb-8 md:mt-3 mb-4 mt-4 md:mx-24 mx-10 pt-3">
         <div className="flex items-center justify-between">
           <Link href="/">
             <Image src={logo} height={35} width={150} alt='logo' />
@@ -28,7 +28,7 @@ const Headers = () => {
             <Link href="#">Female</Link>
             <Link href="#">Male</Link>
             <Link href="#">Kids</Link>
-            <Link href="#">All Products</Link>
+            <Link href="/products">All Products</Link>
           </div>
           <div className="relative hidden lg:flex">
             <Input placeholder='what you looking for' className='relative h-[30px] pl-[30px]' />
@@ -63,7 +63,7 @@ const Headers = () => {
                   <li className='font-[500]'>
                     <button className='relative mt-2 mr-3 bg-[#f1f1f1] lg:flex rounded-full p-[12px] transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110'>
                     <MdProductionQuantityLimits className='text-[18px] ' /></button>
-                    <Link href="#" className='text-[20px]'>All Products</Link></li>
+                    <Link href="/products" className='text-[20px]'>All Products</Link></li>
                   <li className=' font-[500]'>
                   <button className='relative mt-2 mr-3 bg-[#f1f1f1] lg:flex rounded-full p-[12px] transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110'>
                     <FaChild className='text-[18px] ' /></button>

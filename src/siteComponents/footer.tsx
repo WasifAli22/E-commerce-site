@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { AiOutlineTwitter } from "react-icons/ai"
 const Footer = () => {
     return (
-        <div className='md:my-12 mb-10 mt-16 md:mx-24 mx-10'>
+        <div className='md:my-12 mb-10 pt-8 mt-16 md:mx-24 mx-10'>
             <div className="grid grid-cols-12">
                 <div className="lg:col-span-3 mb-3 lg:mb-0 md:col-span-6 col-span-12">
                     <div className="">
@@ -16,7 +16,7 @@ const Footer = () => {
                             <Link href="#" className="bg-[#f1f1f1] text-xl py-2 px-3 rounded-md">
                                 <AiOutlineTwitter />
                             </Link>
-                            <Link href="#" className="bg-[#f1f1f1] text-xl py-2 px-3 rounded-md">
+                            <Link target='_blank' href="https://www.facebook.com/profile.php?id=100080079952424" className="bg-[#f1f1f1] text-xl py-2 px-3 rounded-md">
                                 <BsFacebook />
                             </Link>
                             <Link href="#" className="bg-[#f1f1f1] text-xl py-2 px-3 rounded-md">
@@ -36,11 +36,11 @@ const Footer = () => {
                 </div>
                 <div className="lg:col-span-3 lg:m-auto mb-3 lg:mb-0 md:col-span-6 col-span-12 inline-block h-full">
                     <h3 className='text-[#666] mb-6 font-bold text-xl'>Support</h3>
-                    <ul><li className="text-[#666] text-base mt-3"> <Link href="#">Support Carrer</Link> </li><li className="text-[#666] text-base mt-3">24h Service</li><li className="text-[#666] text-base mt-3"> Quick Chat</li></ul>
+                    <ul><li className="text-[#666] text-base mt-3"> <Link href="#">Support Carrer</Link> </li><li className="text-[#666] text-base mt-3"><Link href="#">24h Service</Link></li><li className="text-[#666] text-base mt-3"><Link href="#">Quick Chat</Link> </li></ul>
                 </div>
                 <div className="lg:col-span-3 lg:m-auto mb-3 lg:mb-0 md:col-span-6 col-span-12 inline-block h-full">
                     <h3 className='text-[#666] font-bold mb-6 text-xl'>Contact</h3>
-                    <ul><li className="text-[#666] text-base mt-3"> <Link href="#">Whatsapp</Link> </li><li className="text-[#666] text-base mt-3">Support 24h</li></ul>
+                    <ul><li className="text-[#666] text-base mt-3"> <Link href="#">Whatsapp</Link> </li><li className="text-[#666] text-base mt-3"><Link href="#">Support 24h</Link> </li></ul>
                 </div>
             </div>
             <div className="mt-16">
@@ -52,7 +52,7 @@ const Footer = () => {
                         <p className='text-[#666] text-base'>Design by: <span className='text-[#212121] font-bold'>Wasif Shahid</span></p>
                     </div>
                     <div className="lg:col-span-4 md:col-span-6 col-span-12 mb-3 mt-3 lg:ml-auto">
-                        <p className='text-[#666] text-base'>Code by: <span className='text-[#212121] font-bold'>WasifAli22 on github</span></p>
+                        <p className='text-[#666] text-base'>Code by: <span className='text-[#212121] font-bold'><Link target='_blank' href="https://github.com/WasifAli22">WasifAli22 on github</Link> </span></p>
                     </div>
                 </div>
             </div>

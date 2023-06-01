@@ -18,7 +18,7 @@ const Baner = () => {
             Anyone can beat you but no one can beat your outfit as long as you wear Dine outfits.
           </p>
           <button className='bg-[#212121] font-[600] transition all mb-3 hover:bg-white hover:text-black hover:border hover:border-black hover:border-solid p-4 mt-5 text-white'>
-            <Link href="#" className='flex items-center'><AiOutlineShoppingCart className='mr-2 text-[20px]' />Start Shopping</Link>
+            <Link href="/products" className='flex items-center'><AiOutlineShoppingCart className='mr-2 text-[20px]' />Start Shopping</Link>
           </button>
           <div className="flex gap-4 mt-5 items-center">
             <Image src={brand1} alt="firtst" width={100} height={35} />
