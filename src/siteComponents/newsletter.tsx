@@ -12,7 +12,7 @@ const NewsLetter = () => {
                     <p className='text-[#212121] text-base font-[300] mb-4'>Get the latest information and promo offers directly</p>
                     <div className="flex items-center">
                         <Input type="email" placeholder='Input email address' className='relative border focus:border-0 focus:outline-none border-[gray] border-solid h-[42px] py-[10px] pr-0 lg:pr-[120px] pl-[20px]' />
-                        <button className="bg-[#212121] ml-4 font-[600] transition all hover:bg-white hover:text-black hover:border hover:border-black w-[150px] h-[42px] hover:border-solid px-2 py-1 rounded-md text-white">
+                        <button className="bg-[#212121] ml-4 font-[600] transition all hover:bg-white hover:text-black hover:border hover:border-black w-[155px] h-[42px] hover:border-solid px-2 py-1 rounded-md text-white">
                             Get Started
                         </button>
                     </div>

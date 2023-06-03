@@ -1,8 +1,18 @@
 import React from 'react'
 import feature from "../../public/feature.webp"
 import Image from 'next/image'
+import { client } from '@/lib/sanityClient'
+
 import Link from 'next/link'
-const DifferFromOther = () => {
+
+export const getUnique = async () => {
+    const response = await client.fetch(`*[_type=='unique']{
+    title,description
+  }`)
+    return response
+}
+const DifferFromOther = async () => {
+    const data = await getUnique()
     return (
         <div className='md:my-12 mb-10 mt-16 md:mx-24 mx-10'>
             <div className="w-full text-end">
@@ -12,26 +22,20 @@ const DifferFromOther = () => {
                 <div className="lg:col-span-4 relative md:col-span-12 col-span-12">
                     <div className="font-bold text-[#212121] text-6xl lg:text-8xl absolute opacity-[.07] z-[1]">Different from others</div>
                     <div className="grid grid-cols-12">
-                        <div className="col-span-6">
-                            <div className="mb-4">
-                                <h3 className='text-[#212121] mb-4 text-lg font-bold'>Using Good Quality Materials</h3>
-                                <p className='text-[#212121] font-[300] text-base'>Lorem ipsum dolor sit amt, consectetur adipiscing elit.</p>
+                        {data.map((g: any) => (
+                            <div className="lg:col-span-6 col-span-12" key={g}>
+                                <div className="grid grid-cols-12">
+                                    <div className="mb-4 col-span-12">
+                                        <h3 className='text-[#212121] text-lg font-bold'>{g.title}</h3>
+                                        <p className='text-[#212121] font-[300] text-base'>{g.description}</p>
+                                    </div>
+                                    <div className="mb-4 col-span-12">
+                                        <h3 className='text-[#212121] text-lg font-bold'>{g.title}</h3>
+                                        <p className='text-[#212121] font-[300] text-base'>{g.description}</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="mb-4">
-                                <h3 className='text-[#212121] mb-4 text-lg font-bold'>Using Good Quality Materials</h3>
-                                <p className='text-[#212121] font-[300] text-base'>Lorem ipsum dolor sit amt, consectetur adipiscing elit.</p>
-                            </div>
-                        </div>
-                        <div className="col-span-6">
-                            <div className="mb-4">
-                                <h3 className='text-[#212121] mb-4 text-lg font-bold'>Using Good Quality Materials</h3>
-                                <p className='text-[#212121] font-[300] text-base'>Lorem ipsum dolor sit amt, consectetur adipiscing elit.</p>
-                            </div>
-                            <div className="mb-4">
-                                <h3 className='text-[#212121] mb-4 text-lg font-bold'>Using Good Quality Materials</h3>
-                                <p className='text-[#212121] font-[300] text-base'>Lorem ipsum dolor sit amt, consectetur adipiscing elit.</p>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
                 <div className="lg:col-span-4 m-auto md:col-span-6 col-span-12">

@@ -7,8 +7,9 @@ import DifferFromOther from '@/siteComponents/differFromOther'
 export default function Home() {
   return (
     <>
-
+    {/* @ts-ignore server component */}
       <Baner />
+      {/* @ts-ignore server component */}
       <Promotion/>
       <Product/>
       <DifferFromOther/>
