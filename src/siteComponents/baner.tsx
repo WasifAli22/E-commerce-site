@@ -34,7 +34,7 @@ interface Ibanner {
 
 const Baner = async () => {
   const data: Ibanner[] = await getBannerData()
-  console.log(data)
+  // console.log(data)
 
   return (
     <div className='md:my-12 my-6 md:mx-24 mx-10'>

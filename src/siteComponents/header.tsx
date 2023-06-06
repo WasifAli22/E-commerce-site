@@ -2,7 +2,7 @@
 import React from 'react'
 import { Button } from "@/components/ui/button"
 import { GiHamburgerMenu } from "react-icons/gi"
-import {FaChild,FaMale,FaFemale} from "react-icons/fa"
+import { FaChild, FaMale, FaFemale } from "react-icons/fa"
 import logo from "../../public/logo.webp"
 import { useState } from 'react'
 import { MdProductionQuantityLimits } from "react-icons/md"
@@ -25,8 +25,8 @@ const Headers = () => {
           </Link>
 
           <div className="hidden gap-12 lg:flex">
-            <Link href="#">Female</Link>
-            <Link href="#">Male</Link>
+            <Link href="/female">Female</Link>
+            <Link href="/male">Male</Link>
             <Link href="#">Kids</Link>
             <Link href="/products">All Products</Link>
           </div>
@@ -62,25 +62,24 @@ const Headers = () => {
                   </button><Link href="#" className='text-[20px]'>Cart</Link></li>
                   <li className='font-[500]'>
                     <button className='relative mt-2 mr-3 bg-[#f1f1f1] lg:flex rounded-full p-[12px] transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110'>
-                    <MdProductionQuantityLimits className='text-[18px] ' /></button>
+                      <MdProductionQuantityLimits className='text-[18px] ' /></button>
                     <Link href="/products" className='text-[20px]'>All Products</Link></li>
                   <li className=' font-[500]'>
-                  <button className='relative mt-2 mr-3 bg-[#f1f1f1] lg:flex rounded-full p-[12px] transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110'>
-                    <FaChild className='text-[18px] ' /></button>
+                    <button className='relative mt-2 mr-3 bg-[#f1f1f1] lg:flex rounded-full p-[12px] transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110'>
+                      <FaChild className='text-[18px] ' /></button>
                     <Link href="#" className='text-[20px]'>Kids</Link></li>
                   <li className=' font-[500]'>
-                  <button className='relative mt-2 mr-3 bg-[#f1f1f1] lg:flex rounded-full p-[12px] transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110'>
-                    <FaMale className='text-[18px] ' /></button>
-                    <Link href="#" className='text-[20px]'>Male</Link></li>
+                    <button className='relative mt-2 mr-3 bg-[#f1f1f1] lg:flex rounded-full p-[12px] transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110'>
+                      <FaMale className='text-[18px] ' /></button>
+                    <Link href="/male" className='text-[20px]'>Male</Link></li>
                   <li className=' font-[500]'>
-                  <button className='relative mt-2 mr-3 bg-[#f1f1f1] lg:flex rounded-full p-[12px] transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110'>
-                    <FaFemale className='text-[18px] ' /></button>
-                    <Link href="#" className='text-[20px]'>Female</Link></li>
+                    <button className='relative mt-2 mr-3 bg-[#f1f1f1] lg:flex rounded-full p-[12px] transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110'>
+                      <FaFemale className='text-[18px] ' /></button>
+                    <Link href="/female" className='text-[20px]'>Female</Link></li>
                 </ul>
               </div>
             </aside>
           </div>
-
         </div>
 
       </div>
