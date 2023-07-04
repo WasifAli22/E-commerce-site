@@ -2,6 +2,8 @@
 import React from 'react'
 import { Button } from "@/components/ui/button"
 import { GiHamburgerMenu } from "react-icons/gi"
+import { useSelector, useDispatch } from 'react-redux'
+import { RootState } from '@/store/store'
 import { FaChild, FaMale, FaFemale } from "react-icons/fa"
 import logo from "../../public/logo.webp"
 import { useState } from 'react'
@@ -10,11 +12,21 @@ import { AiOutlineShoppingCart } from "react-icons/ai"
 import { CiSearch } from "react-icons/ci"
 import Link from 'next/link'
 import { Input } from "@/components/ui/input"
-
+import { NavbarArray, NavbarType, MobileNavbarArray } from './utils/NavbarArrayAndTypes'
 import Image from 'next/image'
+
+
 const Headers = () => {
+  const CartValue = useSelector((state: RootState) => { state.cart.totalQuantity })
   const [isHeader, setIsHeader] = useState<boolean>(false);
 
+  const iconComponents: { [key: string]: React.ComponentType } = {
+    FaFemale: FaFemale,
+    FaMale: FaMale,
+    FaChild: FaChild,
+    MdProductionQuantityLimits: MdProductionQuantityLimits,
+  };
+  
   return (
     <nav className='shadow-md sticky top-0 bg-white w-full z-[999] h-[60px]'>
 
@@ -25,10 +37,13 @@ const Headers = () => {
           </Link>
 
           <div className="hidden gap-12 lg:flex">
-            <Link href="/female">Female</Link>
-            <Link href="/male">Male</Link>
-            <Link href="#">Kids</Link>
-            <Link href="/products">All Products</Link>
+            {NavbarArray.map((item: NavbarType) => {
+              return (
+                <div key={item.label}>
+                  <Link href={item.href}>{item.label}</Link>
+                </div>
+              )
+            })}
           </div>
           <div className="relative hidden lg:flex">
             <Input placeholder='what you looking for' className='relative h-[30px] pl-[30px]' />
@@ -60,7 +75,19 @@ const Headers = () => {
                     <AiOutlineShoppingCart className='text-[18px] ' />
                     <span className='absolute top-[-4px] right-0 bg-[#f02d34] rounded-full text-[13px] h-[18px] w-[18px] text-white'>0</span>
                   </button><Link href="#" className='text-[20px]'>Cart</Link></li>
-                  <li className='font-[500]'>
+                  
+                  {MobileNavbarArray.map((i) => {
+                    const IconComponent = iconComponents[i.icon];
+                    return (
+                      
+                      <li className='font-[500]' key={i.label}>
+                        <button className='relative mt-2 mr-3 bg-[#f1f1f1] lg:flex rounded-full p-[12px] transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110'>
+                        <IconComponent />
+                        </button>
+                        <Link href={i.href} className='text-[20px]'>{i.label}</Link></li>
+                    )
+                  })}
+                  {/* <li className='font-[500]'>
                     <button className='relative mt-2 mr-3 bg-[#f1f1f1] lg:flex rounded-full p-[12px] transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110'>
                       <MdProductionQuantityLimits className='text-[18px] ' /></button>
                     <Link href="/products" className='text-[20px]'>All Products</Link></li>
@@ -75,7 +102,7 @@ const Headers = () => {
                   <li className=' font-[500]'>
                     <button className='relative mt-2 mr-3 bg-[#f1f1f1] lg:flex rounded-full p-[12px] transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110'>
                       <FaFemale className='text-[18px] ' /></button>
-                    <Link href="/female" className='text-[20px]'>Female</Link></li>
+                    <Link href="/female" className='text-[20px]'>Female</Link></li> */}
                 </ul>
               </div>
             </aside>
