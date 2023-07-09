@@ -11,8 +11,18 @@ export const product = {
             type: "string"
         },
         {
+            name: "description",
+            title: "Description",
+            type: "string"
+        },
+        {
             name: "price",
             title: "Price",
+            type: "string"
+        },
+        {
+            name: "care",
+            title: "Product Care",
             type: "string"
         },
         {
@@ -22,11 +32,11 @@ export const product = {
         }
         ,
         defineField
-        ({
-            name: "category",
-            title: "Product Category",
-            type: "reference",
-            to: [{ type: "category" }]
-        })
+            ({
+                name: "category",
+                title: "Product Category",
+                type: "reference",
+                to: [{ type: "category" }]
+            })
     ]
 }

@@ -53,7 +53,7 @@ const Headers = () => {
             <AiOutlineShoppingCart className='text-[18px] ' />
             <span className='absolute top-[-4px] right-0 bg-[#f02d34] rounded-full text-[13px] h-[18px] w-[18px] text-white'>0</span>
           </button>
-
+              
           {/* For small screens */}
           <div className="visible lg:hidden">
             <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" className="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" onClick={() => setIsHeader(!isHeader)}>
@@ -76,10 +76,10 @@ const Headers = () => {
                     <span className='absolute top-[-4px] right-0 bg-[#f02d34] rounded-full text-[13px] h-[18px] w-[18px] text-white'>0</span>
                   </button><Link href="#" className='text-[20px]'>Cart</Link></li>
                   
+                  {/* these li's are dynamic  */}
                   {MobileNavbarArray.map((i) => {
                     const IconComponent = iconComponents[i.icon];
                     return (
-                      
                       <li className='font-[500]' key={i.label}>
                         <button className='relative mt-2 mr-3 bg-[#f1f1f1] lg:flex rounded-full p-[12px] transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110'>
                         <IconComponent />
@@ -87,22 +87,6 @@ const Headers = () => {
                         <Link href={i.href} className='text-[20px]'>{i.label}</Link></li>
                     )
                   })}
-                  {/* <li className='font-[500]'>
-                    <button className='relative mt-2 mr-3 bg-[#f1f1f1] lg:flex rounded-full p-[12px] transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110'>
-                      <MdProductionQuantityLimits className='text-[18px] ' /></button>
-                    <Link href="/products" className='text-[20px]'>All Products</Link></li>
-                  <li className=' font-[500]'>
-                    <button className='relative mt-2 mr-3 bg-[#f1f1f1] lg:flex rounded-full p-[12px] transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110'>
-                      <FaChild className='text-[18px] ' /></button>
-                    <Link href="#" className='text-[20px]'>Kids</Link></li>
-                  <li className=' font-[500]'>
-                    <button className='relative mt-2 mr-3 bg-[#f1f1f1] lg:flex rounded-full p-[12px] transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110'>
-                      <FaMale className='text-[18px] ' /></button>
-                    <Link href="/male" className='text-[20px]'>Male</Link></li>
-                  <li className=' font-[500]'>
-                    <button className='relative mt-2 mr-3 bg-[#f1f1f1] lg:flex rounded-full p-[12px] transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110'>
-                      <FaFemale className='text-[18px] ' /></button>
-                    <Link href="/female" className='text-[20px]'>Female</Link></li> */}
                 </ul>
               </div>
             </aside>
