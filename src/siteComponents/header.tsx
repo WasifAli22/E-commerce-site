@@ -17,7 +17,7 @@ import Image from 'next/image'
 
 
 const Headers = () => {
-  const CartValue = useSelector((state: RootState) => { state.cart.totalQuantity })
+  const CartValue = useSelector((state: RootState) => state.cart.totalQuantity )
   const [isHeader, setIsHeader] = useState<boolean>(false);
 
   const iconComponents: { [key: string]: React.ComponentType } = {
@@ -51,7 +51,7 @@ const Headers = () => {
           </div>
           <button className='relative hidden lg:visible bg-[#f1f1f1] lg:flex rounded-full p-[12px] transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110'>
             <AiOutlineShoppingCart className='text-[18px] ' />
-            <span className='absolute top-[-4px] right-0 bg-[#f02d34] rounded-full text-[13px] h-[18px] w-[18px] text-white'>0</span>
+            <span className='absolute top-[-4px] right-0 bg-[#f02d34] rounded-full text-[13px] h-[18px] w-[18px] text-white'>{CartValue}</span>
           </button>
               
           {/* For small screens */}
@@ -73,7 +73,7 @@ const Headers = () => {
                   </li>
                   <li className=' font-[500]'><button className='relative mt-5 mr-3 bg-[#f1f1f1] lg:flex rounded-full p-[12px] transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110'>
                     <AiOutlineShoppingCart className='text-[18px] ' />
-                    <span className='absolute top-[-4px] right-0 bg-[#f02d34] rounded-full text-[13px] h-[18px] w-[18px] text-white'>0</span>
+                    <span className='absolute top-[-4px] right-0 bg-[#f02d34] rounded-full text-[13px] h-[18px] w-[18px] text-white'>{CartValue}</span>
                   </button><Link href="#" className='text-[20px]'>Cart</Link></li>
                   
                   {/* these li's are dynamic  */}
