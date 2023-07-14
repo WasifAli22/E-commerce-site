@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { urlForImage } from '../../../../sanity/lib/image'
 import { client } from '@/lib/sanityClient'
 import { Image as IImage } from 'sanity'
 import Image from 'next/image'
+import Size from '@/sections/size'
 // getting data from santiy
 export const getProductData = async () => {
     const res = await client.fetch(`*[_type=="product"] {
@@ -60,12 +61,9 @@ const page = async ({ params }: { params: { id: string } }) => {
                         <h1 className="text-6xl text-[#212121] my-5 font-[700]">{title}</h1>
                         <div>
                             <p className="font-bold text-base navsc:text-[0.9rem] leading-5 tracking-wider text-[#212121] uppercase">Select Size</p>
-                            <div className="flex gap-4 mt-5">
-                                <button className="rounded-full bg-gray-100 hover:bg-gray-200 duration-150 ease-in-out font-bold leading-4 tracking-wider text-base text-[#666] w-10 h-10 flex justify-center items-center bg-gray-300">XS</button>
-                                <button className="rounded-full bg-gray-100 hover:bg-gray-200 duration-150 ease-in-out font-bold leading-4 tracking-wider text-base text-[#666] w-10 h-10 flex justify-center items-center bg-gray-100">S</button>
-                                <button className="rounded-full bg-gray-100 hover:bg-gray-200 duration-150 ease-in-out font-bold leading-4 tracking-wider text-base text-[#666] w-10 h-10 flex justify-center items-center bg-gray-100">M</button>
-                                <button className="rounded-full bg-gray-100 hover:bg-gray-200 duration-150 ease-in-out font-bold leading-4 tracking-wider text-base text-[#666] w-10 h-10 flex justify-center items-center bg-gray-100">L</button>
-                                <button className="rounded-full bg-gray-100 hover:bg-gray-200 duration-150 ease-in-out font-bold leading-4 tracking-wider text-base text-[#666] w-10 h-10 flex justify-center items-center bg-gray-100">XL</button>
+                            <div className="">
+                                {/* size component */}
+                                <Size />
                             </div>
                         </div>
                     </div>
