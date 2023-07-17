@@ -1,9 +1,8 @@
+import Providers from '@/views/provider'
 import './globals.css'
 import { Inter } from 'next/font/google'
-import Header from '@/siteComponents/header'
-import Headers from '@/siteComponents/header'
-import Providers from '@/siteComponents/provider'
-import Footer from '@/siteComponents/footer'
+import Footer from '@/views/layout/footer'
+import Headers from '@/views/layout/header'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {

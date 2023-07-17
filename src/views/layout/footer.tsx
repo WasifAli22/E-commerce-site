@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from "../../public/logo.webp"
+// import logo from "../../public/logo.webp"
 import Link from 'next/link'
 import { BsFacebook, BsLinkedin } from "react-icons/bs"
 import Image from 'next/image'
@@ -10,7 +10,7 @@ const Footer = () => {
             <div className="grid grid-cols-12">
                 <div className="lg:col-span-3 mb-3 lg:mb-0 md:col-span-6 col-span-12">
                     <div className="">
-                        <Image src={logo} height={35} width={150} alt='logo' />
+                        <Image src="/logo.webp" height={35} width={150} alt='logo' />
                         <p className='py-4 text-[#666] text-base'>Small, artisan label that offers a thoughtfully curated collection of high quality everyday essentials made.</p>
                         <div className="flex gap-4">
                             <Link href="#" className="bg-[#f1f1f1] text-xl py-2 px-3 rounded-md">
@@ -46,7 +46,7 @@ const Footer = () => {
             <div className="mt-16">
                 <div className="grid grid-cols-12" style={{ borderTop: "1px solid #666" }}>
                     <div className="lg:col-span-4 md:col-span-6 mt-3 col-span-12 mb-3">
-                        <p className='text-[#666] text-base'>Copyright © 2022 Dine Market</p>
+                        <p className='text-[#666] text-base'>Copyright © 2023 Dine Market</p>
                     </div>
                     <div className="lg:col-span-4 md:col-span-6 col-span-12 mt-3 mb-3 lg:m-auto">
                         <p className='text-[#666] text-base'>Design by: <span className='text-[#212121] font-bold'>Wasif Shahid</span></p>

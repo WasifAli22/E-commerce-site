@@ -1,10 +1,10 @@
 import { type SchemaTypeDefinition } from 'sanity'
-import { promotion } from "./promotion"
-import { banner } from "./banner"
-import { promo } from './promo'
-import { unique } from './unique'
-import { product } from './product'
-import { category } from './category'
+import { promotion } from "./schemas/promotion"
+import { banner } from "./schemas/banner"
+import { promo } from './schemas/promo'
+import { unique } from './schemas/unique'
+import { product } from './schemas/product'
+import { category } from './schemas/category'
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [banner, promotion, promo, unique, product, category],
 }

@@ -1,9 +1,9 @@
+import Baner from '@/views/baner'
+import DifferFromOther from '@/views/differFromOther'
+import NewsLetter from '@/views/newsletter'
+import Product from '@/views/product'
+import Promotion from '@/views/promotion'
 import Image from 'next/image'
-import Baner from '@/siteComponents/baner'
-import Promotion from '@/siteComponents/promotion'
-import Product from '@/siteComponents/product'
-import NewsLetter from '@/siteComponents/newsletter'
-import DifferFromOther from '@/siteComponents/differFromOther'
 export default function Home() {
   return (
     <>
@@ -11,7 +11,9 @@ export default function Home() {
       <Baner />
       {/* @ts-ignore server component */}
       <Promotion/>
+      {/* @ts-ignore server component */}
       <Product/>
+      {/* @ts-ignore server component */}
       <DifferFromOther/>
       <NewsLetter/>
       

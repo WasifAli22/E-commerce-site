@@ -5,14 +5,14 @@ import { GiHamburgerMenu } from "react-icons/gi"
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '@/store/store'
 import { FaChild, FaMale, FaFemale } from "react-icons/fa"
-import logo from "../../public/logo.webp"
+// import logo from "../../public/logo.webp"
 import { useState } from 'react'
 import { MdProductionQuantityLimits } from "react-icons/md"
 import { AiOutlineShoppingCart } from "react-icons/ai"
 import { CiSearch } from "react-icons/ci"
 import Link from 'next/link'
 import { Input } from "@/components/ui/input"
-import { NavbarArray, NavbarType, MobileNavbarArray } from './utils/NavbarArrayAndTypes'
+import { NavbarArray, NavbarType, MobileNavbarArray } from '../utils/NavbarArrayAndTypes'
 import Image from 'next/image'
 
 
@@ -33,7 +33,7 @@ const Headers = () => {
       <div className="md:mb-8 md:mt-3 mb-4 mt-4 md:mx-24 mx-10 pt-3">
         <div className="flex items-center justify-between">
           <Link href="/">
-            <Image src={logo} height={35} width={150} alt='logo' />
+            <Image src="/logo.webp" height={35} width={150} alt='logo' />
           </Link>
 
           <div className="hidden gap-12 lg:flex">
@@ -49,10 +49,10 @@ const Headers = () => {
             <Input placeholder='what you looking for' className='relative h-[30px] pl-[30px]' />
             <CiSearch className='absolute top-2 left-2' />
           </div>
-          <button className='relative hidden lg:visible bg-[#f1f1f1] lg:flex rounded-full p-[12px] transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110'>
+          <a href='/cart'  className='relative hidden lg:visible bg-[#f1f1f1] lg:flex rounded-full p-[12px] transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110'>
             <AiOutlineShoppingCart className='text-[18px] ' />
-            <span className='absolute top-[-4px] right-0 bg-[#f02d34] rounded-full text-[13px] h-[18px] w-[18px] text-white'>{CartValue}</span>
-          </button>
+            <span className='absolute top-[-4px] right-0 bg-[#f02d34] text-center rounded-full text-[13px] h-[18px] w-[18px] text-white'>{CartValue}</span>
+          </a>
               
           {/* For small screens */}
           <div className="visible lg:hidden">
@@ -68,13 +68,13 @@ const Headers = () => {
                 <ul className="space-y-2">
                   <li>
                     <Link href="/">
-                      <Image src={logo} height={35} width={150} alt='logo' />
+                      <Image src="/logo.webp" height={35} width={150} alt='logo' />
                     </Link>
                   </li>
                   <li className=' font-[500]'><button className='relative mt-5 mr-3 bg-[#f1f1f1] lg:flex rounded-full p-[12px] transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110'>
                     <AiOutlineShoppingCart className='text-[18px] ' />
                     <span className='absolute top-[-4px] right-0 bg-[#f02d34] rounded-full text-[13px] h-[18px] w-[18px] text-white'>{CartValue}</span>
-                  </button><Link href="#" className='text-[20px]'>Cart</Link></li>
+                  </button><Link href="/cart" className='text-[20px]'>Cart</Link></li>
                   
                   {/* these li's are dynamic  */}
                   {MobileNavbarArray.map((i) => {

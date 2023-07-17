@@ -1,6 +1,6 @@
 "use client"
+import { size } from '@/views/utils/size'
 import React from 'react'
-import { size } from '@/siteComponents/utils/size'
 import { useState } from 'react'
 const Size = () => {
     const [selectSize, setSelectSize] = useState(null)
