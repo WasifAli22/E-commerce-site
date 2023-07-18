@@ -12,7 +12,7 @@ const AddToCart = () => {
         position: 'top-right'})
     }
     return (    
-        <button onClick={addItem} className="bg-[#212121] ml-4 font-[600] transition all hover:bg-white hover:text-black hover:border hover:border-black w-[155px] h-[42px] hover:border-solid px-2 py-1 rounded-md text-white">
+        <button onClick={addItem} className="bg-[#212121] font-[600] transition all hover:bg-white hover:text-black hover:border hover:border-black lg:w-[155px] w-[49%] h-[42px] hover:border-solid px-2 py-1 rounded-md text-white">
             Add To Cart
         </button>
     )

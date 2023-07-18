@@ -36,7 +36,7 @@ const Female = async () => {
                 <div className="grid grid-cols-12 gap-5">
                     {data.map((i: any) => (
                         <div className="lg:col-span-4 col-span-12 md:col-span-6" key={i._id}>
-                            <div className="max-w-sm bg-white border border-gray-200 p-4 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                            <div className="max-w-sm bg-white border border-gray-200 p-4 transition-all hover:shadow-2xl hover:scale-[1.05] rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                                 <Link href={`/detail/${i._id}`}>
                                     <Image src={urlForImage(i.image).url()} className='m-auto object-cover w-[370px] h-[394px]' width={370} height={394} alt='image' />
 

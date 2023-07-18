@@ -1,14 +1,25 @@
 import React from 'react'
 import Image from 'next/image'
 import StripeCheckOutButton from '@/views/Checkout'
+import { Iproduct, getProductData } from '@/views/utils/mock'
+import { urlForImage } from '../../../sanity/lib/image'
+import image from 'next/image'
 
-const CartDetail = () => {
+const CartDetail = async () => {
+    const data: Iproduct[] = await getProductData()
+    const image = data.find((i) => i._id)?.image    
     return (
         <div className='md:my-14 my-10 md:mx-24 mx-10'>
             <div className="grid grid-cols-12">
                 <h2 className='font-bold mb-8 text-left text-4xl'>Shopping Cart</h2>
                 <div className="lg:col-span-8">
-                    {/* <Image src={urlForImage(image).url()} className='m-auto object-cover w-[150px] h-[auto]' width={370} height={394} alt='image' /> */}
+                    {data.map((i: any) => (
+                        <div key={i._id}>
+                            {/* {image && (
+                                <Image src={urlForImage(i.image).url()} className='m-auto object-cover w-[150px] h-[auto]' width={370} height={394} alt='image' />
+                            )} */}
+                        </div>
+                    ))}
                 </div>
                 {/* Order summary */}
                 <div className="lg:col-span-4">

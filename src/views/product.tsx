@@ -1,6 +1,7 @@
 "use client"
 import React from 'react'
-// import addToCart from './AddToCart'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 import AddToCart from './AddToCart'
 import Link from 'next/link'
 import product1 from "../../public/product/product1.png"
@@ -10,28 +11,8 @@ import { Image as IImage } from 'sanity'
 import { client } from '@/lib/sanityClient'
 import Image from 'next/image'
 import { urlForImage } from '../../sanity/lib/image'
-// getting data from santiy
-export const getProductData = async () => {
-    const res = await client.fetch(`*[_type=="product"] {
-    title,
-    price,
-    _id,
-    image,
-    category ->{
-        name
-    }
-  }`)
-    return res
-}
+import { Iproduct, getProductData } from './utils/mock';
 
-// Interface for type safety
-
-interface Iproduct {
-    title: String,
-    _id: string,
-    price: string,
-    image: IImage,
-}
 const Product = async () => {
     const data: Iproduct[] = await getProductData()
 
@@ -54,13 +35,32 @@ const Product = async () => {
                 <span className='text-[#0062f5] text-sm font-bold'>PRODUCTS</span>
                 <h2 className='text-[#212121] font-bold text-[32px]'>Check What We Have</h2>
             </div>
-            <div className="grid grid-cols-12 gap-5">
+            <Swiper
+                spaceBetween={20}
+                slidesPerView={3}
+                breakpoints={{
+                    0: {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    1280: {
+                        slidesPerView: 3,
+                        spaceBetween: 20,
+                    },
+                }}
+                onSlideChange={() => console.log('slide change')}
+                onSwiper={(swiper) => console.log(swiper)}>
+                {/* <div className="grid grid-cols-12 gap-5"> */}
                 {data.map((i: any) => (
-                    <div className="lg:col-span-4 col-span-12 md:col-span-6" key={i._id}>
-                        <div className="max-w-sm bg-white border border-gray-200 p-4 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <SwiperSlide key={i._id}>
+                        {/* <div className="lg:col-span-4 col-span-12 md:col-span-6" > */}
+                        <div className="max-w-sm bg-white border border-gray-200 p-4 rounded-lg transition-all hover:shadow-2xl hover:border hover:border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700">
                             <Link href={`/detail/${i._id}`}>
                                 <Image src={urlForImage(i.image).url()} className='m-auto object-cover w-[370px] h-[394px]' width={370} height={394} alt='image' />
-
                             </Link>
                             <div className="pt-5">
                                 <Link href={`/detail/${i._id}`}>
@@ -77,10 +77,14 @@ const Product = async () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        {/* </div> */}
+                    </SwiperSlide>
                 ))}
-            </div>
+                {/* </div> */}
+            </Swiper >
         </div>
+
+
     )
 }
 
