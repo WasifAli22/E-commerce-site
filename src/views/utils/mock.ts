@@ -10,18 +10,21 @@ export const getProductData = async () => {
     image,
     category ->{
         name
-    }
+    },
+    slug,
   }`)
     return res
 }
 // Interface for type safety
 
 export interface Iproduct {
-    title: String,
+    title: string,
     _id: string,
-    category: string,
-    price: string,
+    category: {name : string},
+    price: number ,
     care: string,
-    description: string, name: string,
+    description: string, 
+    name: string,
     image: IImage,
+    slug: { current : string },
 }

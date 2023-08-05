@@ -18,7 +18,7 @@ export const product = {
         {
             name: "price",
             title: "Price",
-            type: "string"
+            type : "number",
         },
         {
             name: "care",
@@ -29,8 +29,18 @@ export const product = {
             name: "image",
             title: "Product Image",
             type: "image"
-        }
-        ,
+        },
+        defineField(
+            {
+                title: 'Slug',
+                name: 'slug',
+                type: 'slug',
+                options: {
+                  source: 'title',
+                  maxLength: 100,
+                }
+            }
+        ),
         defineField
             ({
                 name: "category",

@@ -6,20 +6,14 @@ import { urlForImage } from '../../../sanity/lib/image'
 import image from 'next/image'
 
 const CartDetail = async () => {
-    const data: Iproduct[] = await getProductData()
-    const image = data.find((i) => i._id)?.image    
+    // const data: Iproduct[] = await getProductData()
+    // const image = data.find((i) => i._id)?.image    
     return (
         <div className='md:my-14 my-10 md:mx-24 mx-10'>
             <div className="grid grid-cols-12">
                 <h2 className='font-bold mb-8 text-left text-4xl'>Shopping Cart</h2>
                 <div className="lg:col-span-8">
-                    {data.map((i: any) => (
-                        <div key={i._id}>
-                            {/* {image && (
-                                <Image src={urlForImage(i.image).url()} className='m-auto object-cover w-[150px] h-[auto]' width={370} height={394} alt='image' />
-                            )} */}
-                        </div>
-                    ))}
+                    
                 </div>
                 {/* Order summary */}
                 <div className="lg:col-span-4">
@@ -36,3 +30,10 @@ const CartDetail = async () => {
 }
 
 export default CartDetail
+// {data.map((i: any) => (
+//     <div key={i._id}>
+//         {/* {image && (
+//             <Image src={urlForImage(i.image).url()} className='m-auto object-cover w-[150px] h-[auto]' width={370} height={394} alt='image' />
+//         )} */}
+//     </div>
+// ))}
