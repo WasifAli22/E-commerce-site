@@ -9,7 +9,9 @@ import { urlForImage } from '../../../sanity/lib/image'
 import AddToCart from '@/views/AddToCart'
 import { Iproduct, getProductData } from '@/views/utils/mock'
 
+
 const Products = async () => {
+    
     const data: Iproduct[] = await getProductData();
     return (
         <div className='md:my-12 my-10 md:mx-24 mx-10'>
@@ -21,7 +23,7 @@ const Products = async () => {
                 {data.map((i) => (
                     <div className="lg:col-span-4 col-span-12 md:col-span-6" key={i._id}>
                         <div className="max-w-sm bg-white border border-gray-200 p-4 transition-all hover:shadow-2xl hover:scale-[1.05] rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                            <Link href={`/detail/${i._id}`}>
+                            <Link href={`/detail/${i.slug.current}`}>
                                 <Image src={urlForImage(i.image).url()} className='m-auto object-cover w-[370px] h-[394px]' width={370} height={394} alt='image' />
 
                             </Link>
