@@ -1,7 +1,5 @@
 "use client"
-import React from 'react'
-import { Button } from "@/components/ui/button"
-import { GiHamburgerMenu } from "react-icons/gi"
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '@/store/store'
 import { FaChild, FaMale, FaFemale } from "react-icons/fa"
@@ -26,7 +24,6 @@ const Headers = () => {
     FaChild: FaChild,
     MdProductionQuantityLimits: MdProductionQuantityLimits,
   };
-  
   return (
     <nav className='shadow-md sticky top-0 bg-white w-full z-[999] h-[60px]'>
       <div className="md:mb-8 md:mt-3 mb-4 mt-4 md:mx-24 mx-10 pt-3">

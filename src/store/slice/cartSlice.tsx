@@ -30,7 +30,7 @@ export const counterSlice = createSlice({
         (item) => item.slug.current === newItem.slug.current
       )
       state.totalQuantity = state.totalQuantity + actions.payload.quantity;
-      state.totalAmount = state.totalAmount +  actions.payload.quantity * actions.payload.product.price ;
+      state.totalAmount = state.totalAmount + ( actions.payload.quantity * actions.payload.product.price) ;
       if (!existingItem) {
         const totalPrice = newItem.price * actions.payload.quantity;
         state.items.push({
