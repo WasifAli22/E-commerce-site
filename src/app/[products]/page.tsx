@@ -11,6 +11,7 @@ import { Iproduct, getProductData } from '@/views/utils/mock';
 import { allTypeOfProducts } from '@/lib/sanityDb';
 
 
+<<<<<<< HEAD:src/app/[products]/page.tsx
 
 
 
@@ -24,6 +25,11 @@ const Products = async ({ params} : {params: { products: string }}) => {
             </div>
         )
     }
+=======
+const Products = async () => {
+    
+    const data: Iproduct[] = await getProductData();
+>>>>>>> 472bfebbc80faf515b3b1a7b1e828c8d49bcad10:src/app/products/page.tsx
     return (
         <div className='md:my-12 my-10 md:mx-24 mx-10'>
             <div className="section-title text-center mb-14">
@@ -34,7 +40,7 @@ const Products = async ({ params} : {params: { products: string }}) => {
                 {data.map((i) => (
                     <div className="lg:col-span-4 col-span-12 md:col-span-6" key={i._id}>
                         <div className="max-w-sm bg-white border border-gray-200 p-4 transition-all hover:shadow-2xl hover:scale-[1.05] rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                            <Link href={`/detail/${i._id}`}>
+                            <Link href={`/detail/${i.slug.current}`}>
                                 <Image src={urlForImage(i.image).url()} className='m-auto object-cover w-[370px] h-[394px]' width={370} height={394} alt='image' />
 
                             </Link>
