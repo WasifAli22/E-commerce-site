@@ -7,10 +7,23 @@ import { client } from '@/lib/sanityClient'
 import Image from 'next/image'
 import { urlForImage } from '../../../sanity/lib/image'
 import AddToCart from '@/views/AddToCart'
-import { Iproduct, getProductData } from '@/views/utils/mock'
+import { Iproduct, getProductData } from '@/views/utils/mock';
+import { allTypeOfProducts } from '@/lib/sanityDb';
 
-const Products = async () => {
-    const data: Iproduct[] = await getProductData();
+
+
+
+
+const Products = async ({ params} : {params: { products: string }}) => {
+    const category = params.products;
+    const data: Iproduct[] = await allTypeOfProducts(category) //getProductDataDynamic();
+    if(data.length == 0) {
+        return (
+            <div className="text-center min-h-[300px] items-center justify-center m-auto ">
+                <h1 className=" text-xl md:text-2xl lg:text-3xl pt-6 font-bold text-gray-900">No Products Found</h1>
+            </div>
+        )
+    }
     return (
         <div className='md:my-12 my-10 md:mx-24 mx-10'>
             <div className="section-title text-center mb-14">
