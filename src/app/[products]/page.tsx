@@ -1,15 +1,9 @@
-"use client"
 import React from 'react'
-import product1 from "../../../public/product/product1.png"
 import Link from 'next/link'
-import { Image as IImage } from 'sanity'
-import { client } from '@/lib/sanityClient'
 import Image from 'next/image'
 import { urlForImage } from '../../../sanity/lib/image'
 import AddToCart from '@/views/AddToCart'
-import { Iproduct, getProductData } from '@/views/utils/mock';
-import { allTypeOfProducts } from '@/lib/sanityDb'
-// import { allTypeOfProducts } from '@/lib/sanityDb';
+import { IProduct, getProductData , allTypeOfProducts } from '@/views/utils/mock';
 
 
 
@@ -17,7 +11,7 @@ import { allTypeOfProducts } from '@/lib/sanityDb'
 
 const Products = async ({ params} : {params: { products: string }}) => {
     const category = params.products ;
-    const data: Iproduct[] = await allTypeOfProducts(category) //getProductDataDynamic();
+    const data: IProduct[] = await allTypeOfProducts(category) //getProductDataDynamic();
     if(data.length !> 0) {
         return (
             <div className="text-center min-h-[300px] items-center justify-center m-auto ">

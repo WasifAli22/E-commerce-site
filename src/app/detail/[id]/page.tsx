@@ -6,7 +6,7 @@ import Image from 'next/image'
 import Size from '@/sections/size'
 import AddToCart from '@/views/AddToCart'
 import { getProductData } from '@/views/utils/mock'
-import { Iproduct } from '@/views/utils/mock'
+import { IProduct } from '@/views/utils/mock'
 // dynamic data getting  from santiy
 const productDdata = async (productSlug: string) => {
     const res = await client.fetch(`*[_type == "product" && slug.current == $productSlug] {
@@ -28,7 +28,7 @@ const productDdata = async (productSlug: string) => {
 
 const page = async ({ params }: { params: { id: string } }) => {
     const slug = params.id;
-    const data: Iproduct[] = await productDdata(slug);
+    const data: IProduct[] = await productDdata(slug);
     console.log("data of object is",data)
 
     return (

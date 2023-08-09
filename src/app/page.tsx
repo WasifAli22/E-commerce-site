@@ -4,9 +4,6 @@ import DifferFromOther from '@/views/differFromOther'
 import NewsLetter from '@/views/newsletter'
 import Product from '@/views/product'
 import Promotion from '@/views/promotion'
-import Image from 'next/image'
-import { useDispatch } from 'react-redux'
-import { fetchCartData } from '@/store/slice/cartSlice'
 
 export default async function Home() {
     

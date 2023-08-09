@@ -2,11 +2,11 @@
 import { useDispatch , useSelector } from "react-redux"
 import { cartActions } from "@/store/slice/cartSlice"
 import toast from 'react-hot-toast';
-import { Iproduct } from "./utils/mock";
+import { IProduct } from "./utils/mock";
 import { RootState } from '@/store/store';
 import { CartProduct, CartRootState } from "@/types/cart";
 
-const AddToCart = (product : {product : Iproduct}) => {
+const AddToCart = (product : {product : IProduct}) => {
     // console.log("this prodeuct detail is",data)
     const dispatch = useDispatch()
     const addItem=async ()=>{

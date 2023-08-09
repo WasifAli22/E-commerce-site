@@ -1,12 +1,12 @@
 import React from 'react'
 import Image from 'next/image'
 import StripeCheckOutButton from '@/views/Checkout'
-import { Iproduct, getProductData } from '@/views/utils/mock'
+import { IProduct, getProductData } from '@/views/utils/mock'
 import { urlForImage } from '../../../sanity/lib/image'
 import image from 'next/image'
 
 const CartDetail = async () => {
-    // const data: Iproduct[] = await getProductData()
+    // const data: IProduct[] = await getProductData()
     // const image = data.find((i) => i._id)?.image    
     return (
         <div className='md:my-14 my-10 md:mx-24 mx-10'>
