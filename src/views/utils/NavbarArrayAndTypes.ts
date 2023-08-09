@@ -13,7 +13,7 @@ export const NavbarArray: Array<NavbarType> = [
     },
     {
         label: "Kids",
-        href: "#"
+        href: "kids"
     },
     {
         label: "All Products",

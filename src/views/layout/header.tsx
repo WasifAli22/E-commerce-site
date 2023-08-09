@@ -35,7 +35,7 @@ const Headers = () => {
           <div className="hidden gap-12 lg:flex">
             {NavbarArray.map((item: NavbarType) => {
               return (
-                <div key={item.label}>
+                <div key={item.label} className=' hover:cursor-pointer '>
                   <Link href={item.href}>{item.label}</Link>
                 </div>
               )

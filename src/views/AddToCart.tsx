@@ -57,6 +57,8 @@ const AddToCart = (product : {product : IProduct}) => {
         return result;
       }, {});
       console.log("productIdAndQuantityObject",idAndQauntity)
+
+    // ###3# *** finally add products to cart and database  
     const handleAdd = async () => {
         await addItem();
         await handleSubmit(idAndQauntity.product_id,idAndQauntity.quantity );

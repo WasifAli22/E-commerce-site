@@ -12,7 +12,8 @@ import { IProduct, getProductData , allTypeOfProducts } from '@/views/utils/mock
 const Products = async ({ params} : {params: { products: string }}) => {
     const category = params.products ;
     const data: IProduct[] = await allTypeOfProducts(category) //getProductDataDynamic();
-    if(data.length !> 0) {
+    
+    if(data.length === 0) {
         return (
             <div className="text-center min-h-[300px] items-center justify-center m-auto ">
                 <h1 className=" text-xl md:text-2xl lg:text-3xl pt-6 font-bold text-gray-900">No Products Found</h1>
