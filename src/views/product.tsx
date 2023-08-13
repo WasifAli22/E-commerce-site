@@ -52,7 +52,7 @@ const Product = async () => {
                                 <p className="mb-3 font-bold text-[#212121]">Price ${i.price}</p>
                                 <div className="flex justify-between">
                                     {/* @ts-ignore server component */}
-                                    <AddToCart product={i} />
+                                    <AddToCart key={i.slug.current} product={i} />
                                     <Link href={`/detail/${i.slug.current}`} className=" cursor-pointer inline-flex items-center bg-[#212121] font-[600] transition all hover:bg-white hover:text-black hover:border hover:border-black hover:border-solid px-4 py-2 rounded-md text-white">
                                         Read more
                                         <svg aria-hidden="true" className="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>

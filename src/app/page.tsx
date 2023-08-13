@@ -1,4 +1,3 @@
-import { cartActions } from '@/store/slice/cartSlice'
 import Baner from '@/views/baner'
 import DifferFromOther from '@/views/differFromOther'
 import NewsLetter from '@/views/newsletter'

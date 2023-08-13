@@ -2,7 +2,7 @@ import { IProduct } from '@/views/utils/mock';
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
-let lg = console.log
+
 
 export interface CounterState {
   totalAmount: number;
@@ -22,20 +22,8 @@ export type Cart = {
   totalAmount: number;
 };
 
-// export const fetchCartData= async () => {
-//   try {
-//     const res = await fetch(`http://localhost:3000/api/cart`);
-//     if(!res.ok) {
-//       console.log("Failed to fetch data")
-//     }
-//     const data = await res.json();
-//     console.log("fetch cart data is",data)
-//     return data
-//   } catch (error) {
-//     throw new Error(error as any)
-//   }
-// }
-// fetchCartData()
+
+
 
 export const counterSlice = createSlice({
   name: 'cart',

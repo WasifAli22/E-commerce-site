@@ -30,18 +30,18 @@ const Products = async ({ params} : {params: { products: string }}) => {
                 {data.map((i) => (
                     <div className="lg:col-span-4 col-span-12 md:col-span-6" key={i._id}>
                         <div className="max-w-sm bg-white border border-gray-200 p-4 transition-all hover:shadow-2xl hover:scale-[1.05] rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                            <Link href={`/detail/${i._id}`}>
+                            <Link href={`/detail/${i.slug.current}`}>
                                 <Image src={urlForImage(i.image).url()} className='m-auto object-cover w-[370px] h-[394px]' width={370} height={394} alt='image' />
 
                             </Link>
                             <div className="pt-5">
-                                <Link href={`/detail/${i._id}`}>
+                                <Link href={`/detail/${i.slug.current}`}>
                                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{i.title}</h5>
                                 </Link>
                                 <p className="mb-3 font-bold text-[#212121]">price ${Number(i.price)}</p>
                                 <div className="flex justify-between">
                                     {/* @ts-ignore server component */}
-                                    <AddToCart product={i}/>
+                                    <AddToCart key={i._id}  product={i}/>
                                     <Link href={`/detail/${i.slug.current}`} className="inline-flex items-center bg-[#212121] font-[600] transition all hover:bg-white hover:text-black hover:border hover:border-black hover:border-solid px-4 py-2 rounded-md text-white">
                                         Read more
                                         <svg aria-hidden="true" className="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>

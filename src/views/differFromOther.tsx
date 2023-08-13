@@ -22,8 +22,8 @@ const DifferFromOther = async () => {
                 <div className="lg:col-span-4 relative md:col-span-12 col-span-12">
                     <div className="font-bold text-[#212121] text-6xl lg:text-8xl absolute opacity-[.07] z-[1]">Different from others</div>
                     <div className="grid grid-cols-12">
-                        {data.map((g: any) => (
-                            <div className="lg:col-span-6 col-span-12" key={g}>
+                        {data.map(( g: any , index: number ) => (
+                            <div className="lg:col-span-6 col-span-12" key={index}>
                                 <div className="grid grid-cols-12">
                                     <div className="mb-4 col-span-12">
                                         <h3 className='text-[#212121] text-lg font-bold'>{g.title}</h3>

@@ -56,7 +56,6 @@ const AddToCart = (product : {product : IProduct}) => {
         result = {product_id : item._id , quantity : item.quantity};
         return result;
       }, {});
-      console.log("productIdAndQuantityObject",idAndQauntity)
 
     // ###3# *** finally add products to cart and database  
     const handleAdd = async () => {

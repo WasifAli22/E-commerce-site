@@ -41,7 +41,7 @@ const Baner = async () => {
       <div className="grid grid-cols-12">
         <div className="lg:col-span-6 col-span-12">
 
-          {data.map((item: any) => (
+          {data.map((item: any,index) => (
             <>
               <span className='h-[40px] w-[120px] bg-[#e1edff] text-[blue] rounded-sm flex items-center font-[600] justify-center'>{item.sale}</span>
               <h1 className="text-6xl text-[#212121] my-5 font-[700]" key={item.title}>{item.title}</h1>
@@ -58,7 +58,6 @@ const Baner = async () => {
                 <Image src={brand3} alt="firtst" width={100} height={35} />
                 <Image src={brand4} alt="firtst" width={100} height={35} />
               </div>
-
             </>
           ))}
         </div>

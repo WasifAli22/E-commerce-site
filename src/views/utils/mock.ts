@@ -64,4 +64,50 @@ export interface IProduct {
     name: string,
     image: IImage,
     slug: { current : string },
+};
+export interface Db  {
+  id : number,
+  product_id: string,
+  quantity : number,
+  user_id : string
 }
+export const fetchSanity = async (pId : string) => {
+  const res = await client.fetch(`*[_type=="product" && _id == $pId]{
+      title,
+      price,
+      care,
+      _id,    
+      description,
+      image,
+      category ->{
+          name
+      },
+      slug,
+    }`,{
+      pId
+    }
+  );
+    return res
+}
+export const fetchDb = async () => {
+  try {
+      const res = await fetch(`http://localhost:3000/api/cart`, {
+          method: 'GET',
+          cache : "no-store",
+          headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+          }
+      });
+
+      if (res.ok) {
+          const data = await res.json();
+          return data
+      } else {
+          console.log("failed to fetch data");
+          return null
+      }
+  } catch (error) {
+      console.error("Error fetching data:", error);
+  }
+};
