@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import cartSlice, { cartActions } from './slice/cartSlice';
+import thunk from 'redux-thunk'
 
 export const store = configureStore({
   

@@ -24,7 +24,6 @@ export type Cart = {
 
 
 
-
 export const counterSlice = createSlice({
   name: 'cart',
   initialState,
