@@ -5,6 +5,8 @@ import Product from '@/views/product'
 import Promotion from '@/views/promotion'
 
 export default async function Home() {
+
+  
     
   return (
     <>
