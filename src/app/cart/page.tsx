@@ -6,8 +6,9 @@ import { urlForImage } from '../../../sanity/lib/image'
 import image from 'next/image'
 
 const CartDetail = async () => {
-    // const data: IProduct[] = await getProductData()
-    // const image = data.find((i) => i._id)?.image    
+
+    
+
     return (
         <div className='md:my-14 my-10 md:mx-24 mx-10'>
             <div className="grid grid-cols-12">
