@@ -61,10 +61,14 @@ const AddToCart = (product : {product : IProduct}) => {
     const handleAdd = async () => {
         await addItem();
         await handleSubmit(idAndQauntity.product_id,idAndQauntity.quantity );
-    }
+    };
+    // check if cart item exit the it shows added
+    const isItemExists = (id : string) => {
+        return cartItems.some((item) => item._id === id)
+    };
     return (   
-        <button onClick={handleAdd}  className="bg-[#212121] font-[600] transition all hover:bg-white hover:text-black hover:border hover:border-black lg:w-[155px] w-[49%] h-[42px] hover:border-solid px-2 py-1 rounded-md text-white">
-            Add To Cart
+        <button  onClick={handleAdd}  className={`font-[600] ${!isItemExists(product.product._id) ? "bg-[#212121] hover:bg-white hover:text-black hover:border hover:border-black text-white" : " bg-[#212121] bg-opacity-90 text-white/90 pointer-events-none "} transition all    lg:w-[155px] w-[49%] h-[42px] hover:border-solid px-2 py-1 rounded-md `}>
+           {!isItemExists(product.product._id) ? "Add to Cart" : "Already added"}
         </button>
     )
 }

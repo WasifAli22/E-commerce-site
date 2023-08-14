@@ -7,6 +7,7 @@ import Size from '@/sections/size'
 import AddToCart from '@/views/AddToCart'
 import { getProductData } from '@/views/utils/mock'
 import { IProduct } from '@/views/utils/mock'
+import Action from '@/sections/increDecDel'
 // dynamic data getting  from santiy
 const productDdata = async (productSlug: string) => {
     const res = await client.fetch(`*[_type == "product" && slug.current == $productSlug] {
@@ -58,9 +59,14 @@ const page = async ({ params }: { params: { id: string } }) => {
                                 <div className="mt-8">
                                     <span className='font-semibold'>Category:</span> {i.category.name}
                                 </div>
+                                {/* increse or decrease product action here */}
+                                <div className="mt-4 flex max-w-none md:max-w-sm  justify-between  items-center">
+                                    <Action key={i._id} product={i}/>
+                                </div>
                                 <div className="mt-8">
                                     <AddToCart product={i}/>
                                 </div>
+                                
                             </div>
                         </div>
                     </div>

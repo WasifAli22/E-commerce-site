@@ -81,4 +81,7 @@
   .read_more:hover svg {
     @apply transition-transform transform hover:translate-x-[180deg];
   }
+  .icon {
+    @apply ease-in-out cursor-pointer  text-center  flex justify-center items-center font-bold leading-4 tracking-wider text-base bg-gray-300  w-10 h-10 rounded-full
+  }
 }

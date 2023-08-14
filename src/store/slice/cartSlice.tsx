@@ -68,8 +68,8 @@ export const counterSlice = createSlice({
         existingItem!.totalPrice = existingItem!.totalPrice -existingItem?.price
       }
     },
-    clearCart: (state, action: PayloadAction<number>) => {
-      state=initialState  
+    clearCart(state) {
+      state = initialState;
     },
   },
 })
