@@ -45,10 +45,10 @@ const Headers = () => {
             <Input placeholder='what you looking for' className='relative h-[30px] pl-[30px]' />
             <CiSearch className='absolute top-2 left-2' />
           </div>
-          <a href='/cart'  className='relative hidden lg:visible bg-[#f1f1f1] lg:flex rounded-full p-[12px] transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110'>
+          <Link href='/cart'  className='relative hidden lg:visible bg-[#f1f1f1] lg:flex rounded-full p-[12px] transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110'>
             <AiOutlineShoppingCart className='text-[18px] ' />
             <span className='absolute top-[-4px] right-0 bg-[#f02d34] text-center rounded-full text-[13px] h-[18px] w-[18px] text-white'>{CartValue}</span>
-          </a>
+          </Link>
               
           {/* For small screens */}
           <div className="visible lg:hidden">

@@ -20,6 +20,8 @@ export type Cart = {
   items: IProduct[];
   totalQuantity: number;
   totalAmount: number;
+  isLoading : false,
+  error: string | null;
 };
 
 
