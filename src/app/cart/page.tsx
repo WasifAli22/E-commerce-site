@@ -32,7 +32,7 @@ const CartDetail = async () => {
                             <p className='text-[#ffc700] mb-2'>5 Working Days</p>
                             <div className="flex justify-between">
                                 {/* price */}
-                                <span className="font-bold">$</span>
+                                <span className="font-bold"></span>
                                 {/* increment and decrement counter will be below */}
 
                             </div>
