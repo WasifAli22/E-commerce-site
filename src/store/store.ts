@@ -1,8 +1,8 @@
 import { configureStore  } from '@reduxjs/toolkit'
 import cartSlice, { cartActions } from './slice/cartSlice';
 // import myCustomApiService from './';
-import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
+import { persistStore, persistReducer } from "redux-persist"
+import storage from "redux-persist/lib/storage" // defaults to localStorage for web
 import { combineReducers } from '@reduxjs/toolkit';
 
 // persist actions here
