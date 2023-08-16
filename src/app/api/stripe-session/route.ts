@@ -1,3 +1,4 @@
+import { IProduct } from "@/views/utils/mock";
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 
@@ -16,7 +17,8 @@ export async function POST(request: NextRequest) {
         submit_type: "pay",
         mode: "payment",
         payment_method_types: ["card"],
-        billing_address_collection: "auto",
+        billing_address_collection: "required",
+        
         shipping_options: [
           { shipping_rate: "shr_1NU2iDHNdM7cJCS3hINTSLzo" },
           { shipping_rate: "shr_1NU2jRHNdM7cJCS39AxgMZ1t" },
@@ -24,12 +26,12 @@ export async function POST(request: NextRequest) {
         invoice_creation: {
           enabled: true,
         },
-        line_items: body.map((item: any) => {
+        line_items: body.map((item : any) => {
           return {
             price_data: {
               currency: "pkr",
               product_data: {
-                name: item.name,
+                name: item.title,
               },
               unit_amount: item.price * 100,
             },
@@ -45,7 +47,7 @@ export async function POST(request: NextRequest) {
           enabled: true,
         },
         success_url: `${request.headers.get("origin")}/success`,
-        cancel_url: `${request.headers.get("origin")}/?canceled=true`,
+        cancel_url: `${request.headers.get("origin")}/canceled`,
       });
       return NextResponse.json({ session });
     } else {

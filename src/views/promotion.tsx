@@ -49,16 +49,6 @@ const Promotion = async () => {
                 </div>
                 {/* @ts-ignore server component */}
                 <Promo/>
-
-                {/* <div className="lg:col-span-3 md:col-span-6 col-span-12">
-                    <div className="bg-[#d7d7d9] pt-5 w-full inline-block h-full relative">
-                        <div className="text-center">
-                            <p className='font-[400] text-[15px]'>Flex Push Button Bomber</p>
-                            <div className="price mb-9 lg:mb-14 xl:mb-9"><span className='line-through'>$225.00</span><span className='font-[600] text-lg'>$190.00</span></div>
-                            <Image className='m-auto' src={promtion3} width={282} height={368} alt='d' />
-                        </div>
-                    </div>
-                </div> */}
             </div>
         </div>
     )

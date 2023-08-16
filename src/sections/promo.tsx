@@ -21,7 +21,7 @@ const Promo = async () => {
         <>
             {
                 promoData.map((i: any) => (
-                    <div className="lg:col-span-3 md:col-span-6 col-span-12" key={i}>
+                    <div className="lg:col-span-3 md:col-span-6 col-span-12" key={i._id}>
                         <div className="bg-[#efe1c7] pt-5 w-full inline-block h-full relative">
                             <div className="text-center">
                                 <p className='font-[400] text-[15px]'> {i.title} </p>

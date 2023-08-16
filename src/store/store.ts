@@ -1,17 +1,12 @@
 import { configureStore  } from '@reduxjs/toolkit'
-import cartSlice, { cartActions } from './slice/cartSlice';
-// import myCustomApiService from './';
+import cartSlice from './slice/cartSlice';
 import { persistStore, persistReducer } from "redux-persist"
 import storage from "redux-persist/lib/storage" // defaults to localStorage for web
 import { combineReducers } from '@reduxjs/toolkit';
-import localforage from 'localforage';
-
-
-// persist actions here
 
 const persistConfig = {
   key: 'root',
-  storage : localforage
+  storage 
 
 }
 const rootReducer = combineReducers({
@@ -24,8 +19,13 @@ export const store = configureStore({
     serializableCheck: false,
   }),
   //middleware: [thunk],  devTools: process.env.NODE_ENV !== 'production',
-  devTools : true,
+   devTools : true,
 })
+
+
+
+
+
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>

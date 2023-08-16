@@ -17,7 +17,6 @@ export const getBannerData = async () => {
   title,
   description,
   _id,
-  image,
   sale
 }`)
   return res
@@ -29,22 +28,23 @@ interface Ibanner {
   title: String,
   _id: string,
   description: string,
-  image: IImage,
+ // image: IImage,
+  sale : string
 }
 
 const Baner = async () => {
   const data: Ibanner[] = await getBannerData()
-  // console.log(data)
+   //console.log("banner data",data)
 
   return (
     <div className='md:my-12 my-6 md:mx-24 mx-10'>
       <div className="grid grid-cols-12">
         <div className="lg:col-span-6 col-span-12">
 
-          {data.map((item: any,index) => (
-            <>
+          {data.map((item) => (
+            <div key={item._id}>
               <span className='h-[40px] w-[120px] bg-[#e1edff] text-[blue] rounded-sm flex items-center font-[600] justify-center'>{item.sale}</span>
-              <h1 className="text-6xl text-[#212121] my-5 font-[700]" key={item.title}>{item.title}</h1>
+              <h1 className="text-6xl text-[#212121] my-5 font-[700]" >{item.title}</h1>
               <p className="text-lg my-2 text-gray-500">{item.description}</p>
 
 
@@ -58,12 +58,12 @@ const Baner = async () => {
                 <Image src={brand3} alt="firtst" width={100} height={35} />
                 <Image src={brand4} alt="firtst" width={100} height={35} />
               </div>
-            </>
+            </div>
           ))}
         </div>
         <div className="lg:col-span-6 hidden lg:block">
           <div className="bg-[#ffece3] h-[600px] mt-[-35px] pl-[35px] w-[600px] rounded-full">
-            <Image src={baner} alt='baner' />
+            <Image src={baner}  alt='baner' />
           </div>
         </div>
 

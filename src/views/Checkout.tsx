@@ -1,38 +1,24 @@
 "use client";
 import getStipePromise from "@/lib/stripe";
+import { CartRootState } from "@/types/cart";
+import { useSelector } from "react-redux";
+import { IProduct } from "./utils/mock";
 
-const products = [
-  {
-    product: 1,
-    name: "Stripe Product",
-    price: 400,
-    quantity: 3,
-  },
-  {
-    product: 2,
-    name: "Stripe Product2",
-    price: 40,
-    quantity: 2,
-  },
-  {
-    product: 3,
-    name: "Stripe Product23",
-    price: 4000,
-    quantity: 1,
-  },
-];
 
 const StripeCheckOutButton = () => {
+  const cartItems: IProduct[] = useSelector((state: CartRootState) => state.cart.items);
+  console.log("cartItems",cartItems)
   const handleCheckout = async () => {
     const stripe = await getStipePromise();
     const response = await fetch("/api/stripe-session/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       cache: "no-cache",
-      body: JSON.stringify(products),
+      body: JSON.stringify(cartItems),
     });
 
     const data = await response.json();
+    console.log("checkout status",data)
     if (data.session) {
       stripe?.redirectToCheckout({ sessionId: data.session.id });
     }

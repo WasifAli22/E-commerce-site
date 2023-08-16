@@ -1,7 +1,7 @@
 import Baner from '@/views/baner'
 import DifferFromOther from '@/views/differFromOther'
 import NewsLetter from '@/views/newsletter'
-import Product from '@/views/product'
+import Products from '@/views/product'
 import Promotion from '@/views/promotion'
 
 export default async function Home() {
@@ -15,7 +15,7 @@ export default async function Home() {
       {/* @ts-ignore server component */}
       <Promotion/>
       {/* @ts-ignore server component */}
-      <Product/>
+      <Products /> 
       {/* @ts-ignore server component */}
       <DifferFromOther/>
       <NewsLetter/>

@@ -8,6 +8,20 @@
       "when": 1691230744248,
       "tag": "0000_petite_blazing_skull",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1692186384012,
+      "tag": "0001_lucky_lord_hawal",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1692188075624,
+      "tag": "0002_futuristic_miek",
+      "breakpoints": true
     }
   ]
 }
