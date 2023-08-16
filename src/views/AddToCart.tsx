@@ -11,9 +11,9 @@ const AddToCart = (product : {product : IProduct}) => {
     const dispatch = useDispatch()
     const addItem=async ()=>{
         dispatch(cartActions.addToCart({product : product.product, quantity:1}));
-        toast.success("product added to cart",{
-        duration: 4000,
-        position: 'top-right'})
+        // toast.success("product added to cart",{
+        // duration: 4000,
+        // position: 'top-right'})
         // console.log("product : : : ",product.product)
     };
     

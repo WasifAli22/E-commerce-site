@@ -72,7 +72,7 @@ const Action: React.FC<Props> = ({ product }) => {
   return (
     <>
       {/* Display total amount */}
-      <p className="text-base md:text-xl font-bold leading-4 tracking-wider text-black/80">Total : <span className="text-black ease-in-out transition duration-150">${productAmount}</span></p>
+      <p className="text-base md:text-xl font-bold mb-3 leading-4 tracking-wider text-black/80">Total : <span className="text-black ease-in-out transition duration-150">${productAmount}</span></p>
       <div className="flex px-4 items-center font-bold leading-4 tracking-wider justify-center">
         {/* Display minus button or trash icon based on counter */}
         {counter === 1 ? (

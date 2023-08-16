@@ -20,9 +20,9 @@ const CartDetail = async () => {
     
     return (
         <div className='md:my-14 my-10 md:mx-24 mx-10'>
-            <div className="">
-                <h2 className='font-bold mb-8 text-left text-4xl  justify-center '>Shopping Cart</h2>
-               <div className="flex flex-col">
+            <h2 className='font-bold mb-8 text-left text-4xl  justify-center '>Shopping Cart</h2>
+            <div className="grid grid-cols-12">
+               <div className="lg:col-span-8 col-span-12 mb-5 lg:mb-0">
                 {
                         cartItems.length > 0 ? (
                             cartItems.map((i) => (
@@ -33,17 +33,17 @@ const CartDetail = async () => {
                </div>
                 {/* Order summary */}
                 <div className="lg:col-span-4 col-span-12">
-                    <div className="bg-slate-100 p-2">
+                    <div className="bg-slate-100 rounded-sm py-2 px-4">
                         <h3 className='font-bold text-3xl mb-3 text-center'>Order Summary</h3>
                         {/* Quantity */}
                         <div className="flex justify-between font-semibold mb-2">
                             <div>Quantity</div>
-                            <div>1 product</div>
+                            <div> {cartItemQuantity} product</div>
                         </div>
                         {/* Total */}
                         <div className="flex justify-between font-semibold">
                             <div>Sub Total</div>
-                            <div>$</div>
+                            <div>${cartTotalAmount}</div>
                         </div>
                         <StripeCheckOutButton />
                     </div>

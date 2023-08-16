@@ -4,12 +4,15 @@ import cartSlice, { cartActions } from './slice/cartSlice';
 import { persistStore, persistReducer } from "redux-persist"
 import storage from "redux-persist/lib/storage" // defaults to localStorage for web
 import { combineReducers } from '@reduxjs/toolkit';
+import localforage from 'localforage';
+
 
 // persist actions here
 
 const persistConfig = {
   key: 'root',
-  storage
+  storage : localforage
+
 }
 const rootReducer = combineReducers({
   cart:cartSlice
