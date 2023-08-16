@@ -6,9 +6,10 @@ import storage from 'redux-persist/lib/storage' // defaults to localStorage for 
 import { combineReducers } from '@reduxjs/toolkit';
 
 // persist actions here
+
 const persistConfig = {
   key: 'root',
-  storage,
+  storage
 }
 const rootReducer = combineReducers({
   cart:cartSlice
@@ -19,6 +20,7 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({
     serializableCheck: false,
   }),
+  //middleware: [thunk],  devTools: process.env.NODE_ENV !== 'production',
   devTools : true,
 })
 
