@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { urlForImage } from '../../../sanity/lib/image'
@@ -12,8 +12,28 @@ import { CartRootState } from '@/types/cart'
 
 
 const Products = async ({ params} : {params: { products: string }}) => {
+    
     const category = params.products ;
     const data: IProduct[] = await allTypeOfProducts(category) //getProductDataDynamic();
+//     const [data, setData] = useState<IProduct[]>([]);
+//     const [loading, setLoading] = useState(true);
+//    // 
+
+//    useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         const fetchedData: IProduct[] = await allTypeOfProducts(category);
+//         setData(fetchedData);
+//         setLoading(false); // Set loading to false when data is fetched
+//       } catch (error) {
+//         // Handle error
+//         console.error('Error fetching data:', error);
+//         setLoading(false); // Set loading to false on error
+//       }
+//     };
+
+//     fetchData();
+//   }, [category]);
 
     if(data.length === 0) {
         return (
@@ -28,6 +48,11 @@ const Products = async ({ params} : {params: { products: string }}) => {
                 <span className='text-[#0062f5] text-sm font-bold'>PRODUCTS</span>
                 <h2 className='text-[#212121] font-bold text-[32px]'>Check What We Have</h2>
             </div>
+            {/* {
+                loading && (
+                    <p>loading...</p>
+                )
+            } */}
             <div className="grid grid-cols-12 gap-5">
                 {data.map((i) => (
                     <div className="lg:col-span-4 col-span-12 md:col-span-6" key={i._id}>
@@ -38,7 +63,7 @@ const Products = async ({ params} : {params: { products: string }}) => {
                             </Link>
                             <div className="pt-5">
                                 <Link href={`/detail/${i.slug.current}`}>
-                                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{i.title}</h5>
+                                    <h5 className="mb-2 text-2xl font-bold truncate text-ellipsis tracking-tight text-gray-900 dark:text-white">{i.title}</h5>
                                 </Link>
                                 <p className="mb-3 font-bold text-[#212121]">price ${Number(i.price)}</p>
                                 <div className="flex  flex-auto md:gap-y-2 gap-y-0 md:flex-wrap  justify-between">

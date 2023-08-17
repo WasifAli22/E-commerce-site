@@ -16,8 +16,6 @@ import { useUser } from '@clerk/nextjs'
 const Headers = () => {
   const CartValue = useSelector((state: RootState) => state.cart.totalQuantity)
   const [isHeader, setIsHeader] = useState<boolean>(false);
-
-  const { isLoaded, isSignedIn, user } = useUser();
   
   const iconComponents: { [key: string]: React.ComponentType } = {
     FaFemale: FaFemale,
