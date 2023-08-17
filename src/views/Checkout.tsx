@@ -12,23 +12,27 @@ const StripeCheckOutButton = () => {
   
   // console.log("cartItems",cartItems)
   const handleCheckout = async () => {
-    const stripe = await getStipePromise();
-    const response = await fetch("/api/stripe-session/", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      cache: "no-cache",
-      body: JSON.stringify(cartItems),
-    });
+    try {
+      const stripe = await getStipePromise();
+      const response = await fetch("/api/stripe-session/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        cache: "no-cache",
+        body: JSON.stringify(cartItems),
+      });
+      const data = await response.json();
 
-    const data = await response.json();
-    console.log("checkout status",data)
-    if (data.session) {
-      stripe?.redirectToCheckout({ sessionId: data.session.id });
-    }else {
-      toast.error(data.message)
+      console.log("checkout status",data)
+      if (data.session) {
+        stripe?.redirectToCheckout({ sessionId: data.session.id });
+      }else {
+        toast.error(data.message)
+      }
+
+    } catch (error) {
+      console.log("stripe error",error)
     }
-  };
-
+  }
   return (
     <div className="py-5 text-center">
       <button
@@ -40,5 +44,8 @@ const StripeCheckOutButton = () => {
     </div>
   );
 };
+// 
+
+//     
 
 export default StripeCheckOutButton;

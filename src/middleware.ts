@@ -12,7 +12,8 @@ export default authMiddleware({
           return redirectToSignIn({ returnBackUrl: req.url });
         }
         // lock "success" and "cancel" page if user not athenticated
-        if (!auth.userId && (req.nextUrl.pathname === "/success" || req.nextUrl.pathname === "/canceled")) {
+        // || req.nextUrl.pathname === "/canceled"
+        if (!auth.userId && (req.nextUrl.pathname === "/success" )) {
             return redirectToSignIn({ returnBackUrl: "/cart" });
         }
       },

@@ -4,6 +4,7 @@ import Link from "next/link";
 
 export default function UserInfo() {
   const { isLoaded } = useUser();
+  console.log("🚀isSignedIn:", isLoaded)
 
   return (
     <>
