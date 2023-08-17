@@ -7,7 +7,7 @@ import { IProduct } from "./utils/mock";
 
 const StripeCheckOutButton = () => {
   const cartItems: IProduct[] = useSelector((state: CartRootState) => state.cart.items);
-  console.log("cartItems",cartItems)
+  // console.log("cartItems",cartItems)
   const handleCheckout = async () => {
     const stripe = await getStipePromise();
     const response = await fetch("/api/stripe-session/", {

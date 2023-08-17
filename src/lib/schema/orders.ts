@@ -12,7 +12,7 @@ import { pgTable, varchar, pgEnum, integer, serial , timestamp , text } from "dr
 // name // * from clerk session
 // orderAt // cartTable
 export const statusEnum = pgEnum('status', ['Pending' , 'Processing' , 'Approve' , 'Delivered'  ]);
-export const orderTable = pgTable("orders",{
+export const orderTable = pgTable("orderTable",{
     id: serial("id").primaryKey(),
     user_id: varchar("user_id",{length:255}).notNull(),
     quantity: integer("quantity").notNull(),
@@ -20,7 +20,6 @@ export const orderTable = pgTable("orders",{
     status : statusEnum('Status').default("Pending"),
     name : varchar("name",{length : 100}).notNull(),
     order_at: timestamp('order_at').defaultNow(),
-    orderType : text('order_Type').notNull(), // like visa , master etc
 });
 
 

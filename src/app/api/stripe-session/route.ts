@@ -1,4 +1,5 @@
 import { IProduct } from "@/views/utils/mock";
+import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 
@@ -8,9 +9,27 @@ const stripe = new Stripe(key, {
   apiVersion: "2022-11-15",
 });
 
+
+export async function GET(req : NextRequest) {
+  try {
+    const customer_session = cookies().get("customer_session")?.value;
+console.log(customer_session);
+
+    const session = await stripe.checkout.sessions.retrieve(
+      customer_session as string
+    );
+    
+    return NextResponse.json({session})
+  } catch (error) {
+    return NextResponse.json({messgae : "Some error occures with customerSession"})
+  }
+}
+
 export async function POST(request: NextRequest) {
   const body = await request.json();
-  console.log(body);
+  const setCookies = cookies();
+  const customer_session = cookies().get("customer_session")
+  
   try {
     if (body.length > 0) {
       const session = await stripe.checkout.sessions.create({
@@ -20,8 +39,8 @@ export async function POST(request: NextRequest) {
         billing_address_collection: "required",
         
         shipping_options: [
-          { shipping_rate: "shr_1NU2iDHNdM7cJCS3hINTSLzo" },
-          { shipping_rate: "shr_1NU2jRHNdM7cJCS39AxgMZ1t" },
+          { shipping_rate: "shr_1Ng0OmHNdM7cJCS3TIIm3hIv" },  
+          { shipping_rate: "shr_1Ng0NXHNdM7cJCS30S6SVQCn" },
         ],
         invoice_creation: {
           enabled: true,
@@ -33,7 +52,7 @@ export async function POST(request: NextRequest) {
               product_data: {
                 name: item.title,
               },
-              unit_amount: item.price * 100,
+              unit_amount:item.price * 100,
             },
             quantity: item.quantity,
             adjustable_quantity: {
@@ -49,6 +68,10 @@ export async function POST(request: NextRequest) {
         success_url: `${request.headers.get("origin")}/success`,
         cancel_url: `${request.headers.get("origin")}/canceled`,
       });
+      if(!customer_session) {
+        setCookies.set("customer_session",session.id);
+      }
+      console.log(session.id)
       return NextResponse.json({ session });
     } else {
       return NextResponse.json({ message: "No Data Found" });

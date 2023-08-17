@@ -5,13 +5,21 @@ import { useEffect }      from 'react'
 import { BsBagCheckFill } from 'react-icons/bs'
 import { runFireworks }   from '@/lib/fireWorks';
 import { Button } from '@/components/ui/button'
-
+import { useDispatch } from 'react-redux'
+import { cartActions } from '@/store/slice/cartSlice'
+import toast from 'react-hot-toast'
+ 
 
 
 const Success: NextPage = () => {
 
-
+   const dispatch = useDispatch();
+   const clearCart = async () => {
+    dispatch(cartActions.resetCart());
+    toast.success("Success")
+   }
   useEffect(() => {
+    clearCart()
     localStorage.clear()
     runFireworks()
   }, [])
@@ -49,6 +57,7 @@ const Success: NextPage = () => {
             See your order
           </Button>
         </Link>
+        {/* <button onClick={() => clearCart()} className='hbtn'>clearCart</button> */}
       </div>
     </div>
   )

@@ -1,0 +1,1 @@
+ALTER TABLE "orderTable" DROP COLUMN IF EXISTS "order_Type";
