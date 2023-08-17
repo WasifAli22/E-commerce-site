@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import Footer from '@/views/layout/footer'
 import Headers from '@/views/layout/header'
 import { Toaster } from 'react-hot-toast'
+import { ClerkProvider } from '@clerk/nextjs'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -19,14 +20,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-      <main className="">
-        <Providers>
-          <Headers />
-           {children}
-          <Toaster position="top-right" />
-          <Footer />
-        </Providers>
-      </main>
+        <main className="">
+          <ClerkProvider>
+            <Providers>
+              <Headers />
+              {children}
+              <Toaster position="top-right" />
+              <Footer />
+            </Providers>
+          </ClerkProvider>
+
+        </main>
       </body>
     </html>
   )

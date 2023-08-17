@@ -48,7 +48,7 @@ const Product: React.FC<Props> = ({ product }) => {
                             </Link>
                             <div className="pt-5">
                                 <Link href={`/detail/${i.slug.current}`}>
-                                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{i.title}</h5>
+                                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white truncate text-ellipsis">{i.title}</h5>
                                 </Link>
                                 <p className="mb-3 font-bold text-[#212121]">Price ${i.price}</p>
                                 <div className="flex justify-between">

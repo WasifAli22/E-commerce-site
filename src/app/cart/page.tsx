@@ -6,6 +6,7 @@ import { CartRootState } from '@/types/cart';
 import { useSelector } from 'react-redux';
 import { IProduct } from '@/views/utils/mock';
 import CartItems from '@/components/cart/cartItems';
+import { BsBagCheckFill } from 'react-icons/bs';
 
 // CartDetail component to display shopping cart information
 const CartDetail = () => {
@@ -22,14 +23,23 @@ const CartDetail = () => {
         <div className='md:my-14 my-10 md:mx-24 mx-10'>
             {/* Shopping Cart Title */}
             <h2 className='font-bold mb-8 text-left text-4xl justify-center'>Shopping Cart</h2>
+
             <div className="grid grid-cols-12">
+
                 <div className="lg:col-span-8 col-span-12 mb-5 lg:mb-0">
                     {/* Display cart items */}
                     {cartItems.length > 0 ? (
                         cartItems.map((item) => (
                             <CartItems key={item._id} product={item} />
                         ))
-                    ) : null}
+                    ) : (
+                        <>
+                            <p className='icon text-xl mb-2 text-center mx-auto '>
+                                <BsBagCheckFill size={40} className='h-30 w-30' />
+                            </p>
+                            <h2 className='font-bold mb-8 text-center text-3xl justify-center'>Your cart is empty</h2>
+                        </>
+                    )}
                 </div>
                 {/* Order summary */}
                 <div className="lg:col-span-4 col-span-12">

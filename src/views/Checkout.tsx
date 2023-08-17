@@ -3,10 +3,13 @@ import getStipePromise from "@/lib/stripe";
 import { CartRootState } from "@/types/cart";
 import { useSelector } from "react-redux";
 import { IProduct } from "./utils/mock";
+import toast from "react-hot-toast";
 
 
 const StripeCheckOutButton = () => {
   const cartItems: IProduct[] = useSelector((state: CartRootState) => state.cart.items);
+
+  
   // console.log("cartItems",cartItems)
   const handleCheckout = async () => {
     const stripe = await getStipePromise();
@@ -21,6 +24,8 @@ const StripeCheckOutButton = () => {
     console.log("checkout status",data)
     if (data.session) {
       stripe?.redirectToCheckout({ sessionId: data.session.id });
+    }else {
+      toast.error(data.message)
     }
   };
 

@@ -1,5 +1,4 @@
 "use client"
-import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '@/store/store'
 import { FaChild, FaMale, FaFemale } from "react-icons/fa"
@@ -11,13 +10,15 @@ import { CiSearch } from "react-icons/ci"
 import Link from 'next/link'
 import { Input } from "@/components/ui/input"
 import { NavbarArray, NavbarType, MobileNavbarArray } from '../utils/NavbarArrayAndTypes'
-import Image from 'next/image'
-
-
+import Image from 'next/image';
+import UserInfo from '@/components/userInfo'
+import { useUser } from '@clerk/nextjs'
 const Headers = () => {
-  const CartValue = useSelector((state: RootState) => state.cart.totalQuantity )
+  const CartValue = useSelector((state: RootState) => state.cart.totalQuantity)
   const [isHeader, setIsHeader] = useState<boolean>(false);
 
+  const { isLoaded, isSignedIn, user } = useUser();
+  
   const iconComponents: { [key: string]: React.ComponentType } = {
     FaFemale: FaFemale,
     FaMale: FaMale,
@@ -45,11 +46,17 @@ const Headers = () => {
             <Input placeholder='what you looking for' className='relative h-[30px] pl-[30px]' />
             <CiSearch className='absolute top-2 left-2' />
           </div>
-          <Link href='/cart'  className='relative hidden lg:visible bg-[#f1f1f1] lg:flex rounded-full p-[12px] transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110'>
+          <Link href='/cart' className='relative hidden lg:visible bg-[#f1f1f1] lg:flex rounded-full p-[12px] transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110'>
             <AiOutlineShoppingCart className='text-[18px] ' />
             <span className='absolute top-[-4px] right-0 bg-[#f02d34] text-center rounded-full text-[13px] h-[18px] w-[18px] text-white'>{CartValue}</span>
           </Link>
-              
+          <div className="hidden lg:block">
+            <UserInfo />
+          </div>
+
+
+
+
           {/* For small screens */}
           <div className="visible lg:hidden">
             <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" className="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" onClick={() => setIsHeader(!isHeader)}>
@@ -67,18 +74,21 @@ const Headers = () => {
                       <Image src="/logo.webp" height={35} width={150} alt='logo' />
                     </Link>
                   </li>
+                  <div className="lg:hidden pt-5">
+                    <UserInfo />
+                  </div>
                   <li className=' font-[500]'><button className='relative mt-5 mr-3 bg-[#f1f1f1] lg:flex rounded-full p-[12px] transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110'>
                     <AiOutlineShoppingCart className='text-[18px] ' />
                     <span className='absolute top-[-4px] right-0 bg-[#f02d34] rounded-full text-[13px] h-[18px] w-[18px] text-white'>{CartValue}</span>
                   </button><Link href="/cart" className='text-[20px]'>Cart</Link></li>
-                  
+
                   {/* these li's are dynamic  */}
                   {MobileNavbarArray.map((i) => {
                     const IconComponent = iconComponents[i.icon];
                     return (
                       <li className='font-[500]' key={i.label}>
                         <button className='relative mt-2 mr-3 bg-[#f1f1f1] lg:flex rounded-full p-[12px] transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110'>
-                        <IconComponent />
+                          <IconComponent />
                         </button>
                         <Link href={i.href} className='text-[20px]'>{i.label}</Link></li>
                     )
