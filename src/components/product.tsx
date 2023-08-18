@@ -56,7 +56,7 @@ const Product: React.FC<Props> = ({ product }) => {
                                 </Link>
                                 <p className="mb-3 font-bold text-[#212121]">Price ${i.price}</p>
                                 <div className="flex justify-between">
-                                    {/* AddToCart component to add products to cart */}
+                                    {/* @ts-ignore server component */}
                                     <AddToCart key={i.slug.current} product={i} />
                                     {/* Link to the detail page */}
                                     <Link href={`/detail/${i.slug.current}`} className=" cursor-pointer inline-flex items-center bg-[#212121] font-[600] transition all hover:bg-white hover:text-black hover:border hover:border-black hover:border-solid px-4 py-2 rounded-md text-white">

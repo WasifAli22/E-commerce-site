@@ -36,7 +36,7 @@ const ProductCard: React.FC<Card> = ({ data }) => {
               <p className="mb-3 font-bold text-[#212121]">Price ${Number(i.price)}</p>
               {/* Product action buttons */}
               <div className="flex flex-col xl:flex-row flex-auto space-y-2 sm:space-y-0 md:gap-y-2 gap-y-0 md:flex-wrap justify-between">
-                {/* Add to Cart button */}
+                {/* @ts-ignore server component */}
                 <AddToCart key={i._id} product={i} />
                 {/* Read more button */}
                 <Link href={`/detail/${i.slug.current}`} className="inline-flex w-[64%] xl:w-[48%] justify-center sm:justify-normal items-center bg-[#212121] font-[600] transition all hover:bg-white hover:text-black hover:border hover:border-black hover:border-solid px-4 py-2 rounded-md text-white">

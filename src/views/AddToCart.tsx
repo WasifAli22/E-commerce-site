@@ -74,7 +74,7 @@ const AddToCart = (product: { product: IProduct }) => {
         return cartItems.some((item) => item._id === id)
     };
     return (
-        <button onClick={handleAdd} className={`font-[600] ${!isItemExists(product.product._id) ? "bg-[#212121] hover:bg-white hover:text-black hover:border hover:border-black text-white" : " bg-[#212121] bg-opacity-90 text-white/90 pointer-events-none "} transition all w-[64%] xl:w-[48%] h-[42px] hover:border-solid px-2 py-1 rounded-md `}>
+        <button onClick={addItem} className={`font-[600] ${!isItemExists(product.product._id) ? "bg-[#212121] hover:bg-white hover:text-black hover:border hover:border-black text-white" : " bg-[#212121] bg-opacity-90 text-white/90 pointer-events-none "} transition all w-[64%] xl:w-[48%] h-[42px] hover:border-solid px-2 py-1 rounded-md `}>
             {!isItemExists(product.product._id) ? "Add to Cart" : "Already added"}
         </button>
     )
