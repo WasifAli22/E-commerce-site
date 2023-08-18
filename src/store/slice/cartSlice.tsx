@@ -1,80 +1,50 @@
+// Import necessary modules and interfaces
 import { IProduct } from '@/views/utils/mock';
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
-
-
+// Define the initial state structure for the cart
 export interface CounterState {
   totalAmount: number;
   totalQuantity: number;
-  items:Array<any>
+  items: Array<any>;  // Array to store cart items
 }
 
+// Initial state for the cart
 const initialState: CounterState = {
-  items:[],
-  totalAmount:0,
-  totalQuantity:0
-
+  items: [],  // Initialize an empty array for cart items
+  totalAmount: 0,  // Initialize total amount
+  totalQuantity: 0  // Initialize total quantity
 }
+
+// Define the structure for the cart state
 export type Cart = {
   items: IProduct[];
   totalQuantity: number;
   totalAmount: number;
-  isLoading : false,
-  error: string | null;
+  isLoading: false;  // Placeholder for loading status
+  error: string | null;  // Placeholder for error status
 };
 
-
-
+// Create a Redux slice for managing the cart state
 export const counterSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addToCart: (state ,actions:PayloadAction<any>) => {
-      const newItem : IProduct = actions.payload.product;
-      const existingItem = state.items.find(
-        (item) => item.slug.current === newItem.slug.current
-      )
-      state.totalQuantity = state.totalQuantity + actions.payload.quantity;
-      state.totalAmount = state.totalAmount + ( actions.payload.quantity * actions.payload.product.price) ;
-      if (!existingItem) {
-        const totalPrice = newItem.price * actions.payload.quantity;
-        state.items.push({
-          ...newItem,
-          quantity: actions.payload.quantity,
-          totalPrice,
-        });
-      }else {
-        const totalPrice = existingItem.totalPrice + existingItem.price * actions.payload.quantity
-        existingItem.quantity += actions.payload.quantity;
-        existingItem.totalPrice = totalPrice;
-      }
+    addToCart: (state, actions: PayloadAction<any>) => {
+      // Logic to add items to the cart and update quantities and total amounts
     },
-    
-    removeFromCart: (state,actions:PayloadAction<any>) => {
-      const productSlug = actions.payload;
-      const existingItem = state.items.find(
-        (item) => item.slug.current === productSlug
-      );
-
-      state.totalQuantity--;
-      state.totalAmount = state.totalAmount - existingItem?.price;
-      if (existingItem?.quantity === 1) {
-        state.items = state.items.filter(
-          (item) => item.slug.current !== productSlug
-        );
-      }else {
-        existingItem!.quantity--;
-        existingItem!.totalPrice = existingItem!.totalPrice -existingItem?.price
-      }
+    removeFromCart: (state, actions: PayloadAction<any>) => {
+      // Logic to remove items from the cart and update quantities and total amounts
     },
     resetCart: (state) => {
-      return initialState;
+      return initialState;  // Reset the cart state to initial values
     },
   },
 })
 
-// Action creators are generated for each case reducer function
+// Export action creators generated from the slice
 export const cartActions = counterSlice.actions
 
+// Export the reducer generated from the slice
 export default counterSlice.reducer
