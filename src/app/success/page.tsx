@@ -19,9 +19,29 @@ const Success: NextPage = () => {
     toast.success("Success")
    }
   useEffect(() => {
-    clearCart()
-    localStorage.clear()
-    runFireworks()
+    const stripeSession = async () => {
+      try {
+        const res = await fetch(`/api/stripe-session`,{
+          cache : "no-store"
+        });
+        if(res.ok) {
+          const data = await res.json();
+          if(data.session) {
+            clearCart()
+            // localStorage.clear()
+            runFireworks()
+          }
+          else {
+            toast.error(data.message)
+          }
+          console.log("stripe data = ",data.session)
+        }
+      } catch (error) {
+        console.log("error stripe", error)
+      }
+    };
+    stripeSession();
+    
   }, [])
 
   return (
